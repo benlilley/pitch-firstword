@@ -1,0 +1,1 @@
+Will update this later, but basically this is a super super simple plugin which is used to just output the first word of any provided string. Basically a stripped down version of a word limit plugin that only does one thing! Super simple, but has come in handy more than once.
