@@ -26,7 +26,7 @@ $plugin_info = array(
 	'pi_version'	=> '1.0.0',
 	'pi_author'		=> 'Pitch',
 	'pi_author_url'	=> 'http://pitch.net.nz',
-	'pi_description'=> 'A plugin to show only the first name when a full name is provided.',
+	'pi_description'=> 'A plugin to show only the first word of a string.',
 	'pi_usage'		=> Pitch_firstword::usage()
 );
 
@@ -40,13 +40,13 @@ class Pitch_firstword
 		$this->EE =&get_instance();
 		
 		// Grab the contents of our plugin tag
-		$full_name = $this->EE->TMPL->tagdata;
+		$full_string = $this->EE->TMPL->tagdata;
 		
-		// Now just grab the first word from the name and put in an array
-		$full_name = explode(' ', $full_name);
+		// Now just grab the first word from the string and put in an array
+		$full_string = explode(' ', $full_string);
 		
-		// Return that word (name) for usage by grabbing the first item of the array if there isn't a name die quietly
-		$this->return_data = (isset($full_name[0])) ? $full_name[0] : '';
+		// Return that word for usage by grabbing the first item of the array if there isn't a name die quietly
+		$this->return_data = (isset($full_string[0])) ? $full_string[0] : '';
 		
 	}
 
@@ -55,7 +55,7 @@ class Pitch_firstword
 		ob_start(); 
 ?>
 
-	Use this when you need to grab the first name of a person when you're using the title field to hold their full name.
+	Use this when you need to output ony the first word of a string some examples are below.
 	{exp:pitch_firstword}Ben Lilley{/exp:pitch_firstword} would output "Ben"
 	{exp:pitch_firstword}{person-fullname}{/exp:pitch_firstword}
 
@@ -66,5 +66,5 @@ class Pitch_firstword
 	}
 }
 
-/* End of file pi.pitch_firstname.php */
+/* End of file pi.pitch_firstword.php */
 /* Location: /system/expressionengine/third_party/pitch_firstword/pi.pitch_firstword.php */
